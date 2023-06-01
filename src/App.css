@@ -1,9 +1,14 @@
 .App {
+<<<<<<< HEAD
   background-color: #444343;
+=======
+  background-color: #f6f6f6;
+>>>>>>> ecb55bf2ae8b9f40fdcbc26273c7e38f79ea3612
   width: 100vw;
   height: 100vh;
   text-align: center;
   padding-top: 20px;
+<<<<<<< HEAD
   color: whitesmoke;
 }
 
@@ -12,3 +17,12 @@ h1 {
   color: #e1e1e1;
   padding-bottom: 1rem;
 }
+=======
+}
+
+h1{
+border-bottom: 1px solid #ccc;
+color: #444;
+
+}
+>>>>>>> ecb55bf2ae8b9f40fdcbc26273c7e38f79ea3612
