@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import AddContact from "./components/AddContact/AddContact";
-import "./App.css";
+import ContactList from "./components/ContactList/ContactList";
 
 function App() {
   const [contacts, setContacts] = useState([]);
@@ -16,12 +16,16 @@ function App() {
     ]);
   };
 
+  const deleteContactHandler = (id) => { 
+    const filteredContact = contacts.filter((c) => c.id !== id);
+    setContacts(filteredContact);
+  };
+
   return (
     <main className="App">
       <h1>Contact App </h1>
       <AddContact addContactHandler={addContactHandler} />
-      <section>Add Contact</section>
-      <section>Contact List</section>
+      <ContactList contacts={contacts} onDelete={deleteContactHandler} />
     </main>
   );
 }

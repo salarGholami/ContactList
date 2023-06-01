@@ -4,14 +4,19 @@ import style from "./AddContact.module.css";
 const AddContact = ({ addContactHandler }) => {
   const [contact, setContact] = useState({ name: "", email: "" });
 
-  const changeHandler = (e) => { 
+  const changeHandler = (e) => {
     setContact({ ...contact, [e.target.name]: e.target.value });
   };
 
   const submitForm = (e) => {
+    if (!contact.name || !contact.email) {
+      alert("all fildes are mandatory !");
+      e.preventDefault();
+      return;
+    }
     e.preventDefault();
     addContactHandler(contact);
-    setContact({ name: "", email: "" }); 
+    setContact({ name: "", email: "" });
   };
 
   return (

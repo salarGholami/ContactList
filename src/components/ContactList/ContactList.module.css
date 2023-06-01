@@ -5,15 +5,17 @@
 }
 
 .item {
-  background-color: #fff;
-  width: 20rem;
+  background-color: #7c3aed37;
+  width: 30rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  text-align: center;
   padding: 4px;
   border: 1px solid #ccc;
   border-radius: 5px;
   margin-top: 20px;
+  padding: 1rem 1.5rem;
 }
 
 .item button {
@@ -21,13 +23,13 @@
   cursor: pointer;
   border: 1px solid #dc2626;
   color: #dc2626;
-  background-color: #fff;
+  background-color: transparent;
   padding: 5px 10px;
   border-radius: 5px;
 }
 
 .item img {
-  width: 20px;
-  height: 20px;
+  width: 40px;
+  height: 40px;
   margin-right: 5px;
 }
