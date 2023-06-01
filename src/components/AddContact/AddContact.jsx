@@ -1,20 +1,21 @@
 import { useState } from "react";
 import style from "./AddContact.module.css";
 
-const AddContact = () => {
+const AddContact = ({ addContactHandler }) => {
   const [contact, setContact] = useState({ name: "", email: "" });
 
-  const changeHandler = (e) => {
-    console.log(e.target.value);
+  const changeHandler = (e) => { 
     setContact({ ...contact, [e.target.name]: e.target.value });
   };
 
-  const submitHandler = (e) => {
+  const submitForm = (e) => {
     e.preventDefault();
+    addContactHandler(contact);
+    setContact({ name: "", email: "" }); 
   };
 
   return (
-    <form onSubmit={submitHandler}>
+    <form onSubmit={submitForm}>
       <div className={style.formControl}>
         <label>name</label>
         <input
@@ -23,17 +24,17 @@ const AddContact = () => {
           value={contact.name}
           onChange={changeHandler}
         />
-        <div className={style.formControl}>
-          <label>eamil</label>
-          <input
-            type="text"
-            name="eamil"
-            value={contact.email}
-            onChange={changeHandler}
-          />
-        </div>
       </div>
-      <button type="submit">Add Content</button>
+      <div className={style.formControl}>
+        <label>email</label>
+        <input
+          type="text"
+          name="email"
+          value={contact.email}
+          onChange={changeHandler}
+        />
+      </div>
+      <button type="submit">Add Contact</button>
     </form>
   );
 };

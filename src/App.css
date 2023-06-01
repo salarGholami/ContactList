@@ -7,8 +7,8 @@
   color: whitesmoke;
 }
 
-h1{
-border-bottom: 1px solid #ccc;
-color: #e1e1e1;
-
+h1 {
+  border-bottom: 1px solid #ccc;
+  color: #e1e1e1;
+  padding-bottom: 1rem;
 }
