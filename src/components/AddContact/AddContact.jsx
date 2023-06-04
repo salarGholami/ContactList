@@ -1,8 +1,10 @@
 import { useState } from "react";
 import style from "./AddContact.module.css";
+import { useNavigate } from "react-router-dom";
 
 const AddContact = ({ addContactHandler }) => {
   const [contact, setContact] = useState({ name: "", email: "" });
+  const Navigate = useNavigate();
 
   const changeHandler = (e) => {
     setContact({ ...contact, [e.target.name]: e.target.value });
@@ -17,6 +19,7 @@ const AddContact = ({ addContactHandler }) => {
     e.preventDefault();
     addContactHandler(contact);
     setContact({ name: "", email: "" });
+    Navigate("/");
   };
 
   return (
