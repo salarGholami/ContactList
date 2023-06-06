@@ -3,6 +3,7 @@ import "./App.css";
 import AddContact from "./components/AddContact/AddContact";
 import ContactList from "./components/ContactList/ContactList";
 import { Route, Routes } from "react-router-dom";
+import ContactDetail from "./components/ContactDetail/ContactDetail";
 
 function App() {
   const [contacts, setContacts] = useState(() => {
@@ -42,6 +43,7 @@ function App() {
           path="/add"
           element={<AddContact addContactHandler={addContactHandler} />}
         />
+        <Route path="/user/:id" element={<ContactDetail />} />
       </Routes>
     </main>
   );
