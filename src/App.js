@@ -4,11 +4,10 @@ import AddContact from "./components/AddContact/AddContact";
 import ContactList from "./components/ContactList/ContactList";
 import { Route, Routes } from "react-router-dom";
 import ContactDetail from "./components/ContactDetail/ContactDetail";
+import axios from "axios";
 
 function App() {
-  const [contacts, setContacts] = useState(() => {
-    return JSON.parse(localStorage.getItem("contacts")) || [];
-  });
+  const [contacts, setContacts] = useState([]);
 
   const addContactHandler = (contact) => {
     setContacts([
@@ -26,8 +25,12 @@ function App() {
   };
 
   useEffect(() => {
-    localStorage.setItem("contacts", JSON.stringify(contacts));
-  }, [contacts]);
+    const getContacts = async () => {
+      const { data } = await axios.get("http://localhost:3004/contacts");
+      setContacts(data);
+    };
+    getContacts();
+  }, []);
 
   return (
     <main className="App">
