@@ -4,32 +4,36 @@ import AddContact from "./components/AddContact/AddContact";
 import ContactList from "./components/ContactList/ContactList";
 import { Route, Routes } from "react-router-dom";
 import ContactDetail from "./components/ContactDetail/ContactDetail";
-import axios from "axios";
+import getContacts from "./services/getContactServices";
+import deleteContact from "./services/deleteContactService";
+import addContact from "./services/addContactServices";
 
 function App() {
   const [contacts, setContacts] = useState([]);
 
-  const addContactHandler = (contact) => {
-    setContacts([
-      ...contacts,
-      {
-        id: Math.ceil(Math.random() * 100),
-        ...contact,
-      },
-    ]);
+  const addContactHandler = async (contact) => {
+    try {
+      const { data } = await addContact(contact);
+      setContacts([...contacts, data]);
+    } catch (error) {}
   };
 
-  const deleteContactHandler = (id) => {
-    const filteredContact = contacts.filter((c) => c.id !== id);
-    setContacts(filteredContact);
+  const deleteContactHandler = async (id) => {
+    try {
+      const filteredContact = contacts.filter((c) => c.id !== id);
+      setContacts(filteredContact);
+      await deleteContact(id);
+    } catch (error) {}
   };
 
   useEffect(() => {
-    const getContacts = async () => {
-      const { data } = await axios.get("http://localhost:3004/contacts");
+    const fetchContacts = async () => {
+      const { data } = await getContacts();
       setContacts(data);
     };
-    getContacts();
+    try {
+      fetchContacts();
+    } catch (error) {}
   }, []);
 
   return (
