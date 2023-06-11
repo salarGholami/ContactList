@@ -6,7 +6,11 @@
       "id": 1
     },
     {
+<<<<<<< HEAD
       "name": "dbd",
+=======
+      "name": "hasan1",
+>>>>>>> 77ef596e2bfa79bbfaf72acddf843fadbc5342cf
       "email": "hasanAsgari@gmail.com",
       "id": 2
     }

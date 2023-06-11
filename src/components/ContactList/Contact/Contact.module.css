@@ -21,6 +21,12 @@
   background-color: transparent;
   padding: 5px 10px;
   border-radius: 5px;
+  margin-left: 0.5rem;
+}
+
+.btnEdit {
+  color: #bfbf31 !important;
+  border: 1px solid #bfbf31 !important;
 }
 
 .item img {
@@ -30,15 +36,22 @@
 }
 
 .userData {
+<<<<<<< HEAD
+=======
+  /* display: flex; */
+>>>>>>> 77ef596e2bfa79bbfaf72acddf843fadbc5342cf
   width: 100%;
 }
 
 .userData p {
   margin: 0 10px;
 }
+<<<<<<< HEAD
 
 .btnEdit {
   color: yellow !important;
   border: 1px solid yellow !important;
   margin-right: 0.5rem;
 }
+=======
+>>>>>>> 77ef596e2bfa79bbfaf72acddf843fadbc5342cf

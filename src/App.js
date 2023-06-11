@@ -51,7 +51,11 @@ function App() {
           path="/add"
           element={<AddContact addContactHandler={addContactHandler} />}
         />
+<<<<<<< HEAD
         <Route path="/edit/:id" element={<EditContact />} />
+=======
+        <Route path={`/edit/:id`} element={<EditContact />} />
+>>>>>>> 77ef596e2bfa79bbfaf72acddf843fadbc5342cf
         <Route path="/user/:id" element={<ContactDetail />} />
       </Routes>
     </main>
