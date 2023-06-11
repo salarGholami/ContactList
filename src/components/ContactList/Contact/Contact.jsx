@@ -7,15 +7,23 @@ const Contact = ({ contact, onDelete }) => {
 
   return (
     <div key={id} className={style.item}>
-      <img src={userImage} alt="user" />
-
-      <Link to={ `/user/${id}`} state={{contact}}>
-        <div className={style.userData}>
-          <p>name : {name}</p>
-          <p>email : {email}</p>
-        </div>
-      </Link>
-      <button onClick={() => onDelete(id)}>delete</button>
+      <div
+        style={{ display: "flex", alignItems: "center", textAlign: "start" }}
+      >
+        <img src={userImage} alt="user" />
+        <Link to={`/user/${id}`} state={{ contact }}>
+          <div className={style.userData}>
+            <p>name : {name}</p>
+            <p>email : {email}</p>
+          </div>
+        </Link>
+      </div>
+      <div>
+        <Link to={`/edit/${id}`}>
+          <button className={style.btnEdit}>edit</button>
+        </Link>
+        <button onClick={() => onDelete(id)}>delete</button>
+      </div>
     </div>
   );
 };

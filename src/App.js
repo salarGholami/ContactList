@@ -7,6 +7,7 @@ import ContactDetail from "./components/ContactDetail/ContactDetail";
 import getContacts from "./services/getContactServices";
 import deleteContact from "./services/deleteContactService";
 import addContact from "./services/addContactServices";
+import EditContact from "./components/EditContact/EditContact";
 
 function App() {
   const [contacts, setContacts] = useState([]);
@@ -50,6 +51,7 @@ function App() {
           path="/add"
           element={<AddContact addContactHandler={addContactHandler} />}
         />
+        <Route path="/edit/:id" element={<EditContact />} />
         <Route path="/user/:id" element={<ContactDetail />} />
       </Routes>
     </main>
