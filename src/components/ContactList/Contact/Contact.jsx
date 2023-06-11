@@ -11,10 +11,6 @@ const Contact = ({ contact, onDelete }) => {
         style={{ display: "flex", alignItems: "center", textAlign: "start" }}
       >
         <img src={userImage} alt="user" />
-<<<<<<< HEAD
-=======
-
->>>>>>> 77ef596e2bfa79bbfaf72acddf843fadbc5342cf
         <Link to={`/user/${id}`} state={{ contact }}>
           <div className={style.userData}>
             <p>name : {name}</p>

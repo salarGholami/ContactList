@@ -29,20 +29,11 @@ const EditContact = ({ addContactHandler }) => {
     const localFetch = async () => {
       try {
         const { data } = await getOneContact(paramsId);
-<<<<<<< HEAD
-        console.log(data)
         setContact({ name: data.name, email: data.email });
       } catch (error) {}
     };
     localFetch()
   }, []);
-=======
-        setContact({ name: data.name, email: data.email });
-      } catch (error) {}
-    };
-    localFetch();
-  });
->>>>>>> 77ef596e2bfa79bbfaf72acddf843fadbc5342cf
 
   return (
     <form onSubmit={submitForm}>
@@ -64,11 +55,7 @@ const EditContact = ({ addContactHandler }) => {
           onChange={changeHandler}
         />
       </div>
-<<<<<<< HEAD
       <button type="submit">update Contact</button>
-=======
-      <button type="submit">Edit Contact</button>
->>>>>>> 77ef596e2bfa79bbfaf72acddf843fadbc5342cf
     </form>
   );
 };
