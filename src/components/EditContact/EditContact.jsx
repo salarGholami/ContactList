@@ -3,7 +3,7 @@ import style from "../AddContact/AddContact.module.css";
 import { useNavigate, useParams } from "react-router-dom";
 import getOneContact from "../../services/getOneContact";
 
-const EditContact = ({ addContactHandler }) => {
+const EditContact = ({ editContactHandler }) => {
   const [contact, setContact] = useState({ name: "", email: "" });
   const Navigate = useNavigate();
   const params = useParams();
@@ -20,7 +20,7 @@ const EditContact = ({ addContactHandler }) => {
       return;
     }
     e.preventDefault();
-    addContactHandler(contact);
+    editContactHandler(contact,paramsId);
     setContact({ name: "", email: "" });
     Navigate("/");
   };
@@ -29,7 +29,6 @@ const EditContact = ({ addContactHandler }) => {
     const localFetch = async () => {
       try {
         const { data } = await getOneContact(paramsId);
-        console.log(data)
         setContact({ name: data.name, email: data.email });
       } catch (error) {}
     };
