@@ -28,3 +28,19 @@
   display: flex;
   justify-content: center;
 }
+
+.search input {
+  background-color: #18bf8474 !important;
+  width: 20rem;
+  margin-top: 1rem;
+  padding: 1rem 2rem;
+  border: none;
+  outline: none;
+  appearance: none;
+  color: #fff;
+}
+
+.search input:placeholder-shown {
+  color: #fff;
+  text-align: center;
+}
