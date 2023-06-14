@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import style from "../AddContact/AddContact.module.css";
 import { useNavigate, useParams } from "react-router-dom";
 import getOneContact from "../../services/getOneContact";
+import getContacts from "../../services/getContactServices";
+import updateContact from "../../services/updateContacts";
 
-const EditContact = ({ editContactHandler }) => {
+const EditContact = () => {
   const [contact, setContact] = useState({ name: "", email: "" });
   const Navigate = useNavigate();
   const params = useParams();
@@ -13,14 +15,18 @@ const EditContact = ({ editContactHandler }) => {
     setContact({ ...contact, [e.target.name]: e.target.value });
   };
 
-  const submitForm = (e) => {
+
+  const submitForm = async (e) => {
     if (!contact.name || !contact.email) {
       alert("all fildes are mandatory !");
       e.preventDefault();
       return;
     }
     e.preventDefault();
-    editContactHandler(contact,paramsId);
+    try {
+      await updateContact(paramsId, contact);
+      await getContacts();
+    } catch (error) {};
     setContact({ name: "", email: "" });
     Navigate("/");
   };
@@ -32,7 +38,7 @@ const EditContact = ({ editContactHandler }) => {
         setContact({ name: data.name, email: data.email });
       } catch (error) {}
     };
-    localFetch()
+    localFetch();
   }, []);
 
   return (
